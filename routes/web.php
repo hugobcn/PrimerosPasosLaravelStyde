@@ -14,5 +14,32 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('notes');
 });
+
+// /notas
+Route::get('notas', function () {
+    return view('notes');
+});
+
+Route::get('notas/crear', function () {
+    return 'aqui podrmso ver formulario notas';
+});
+
+Route::get('notas/editar', function () {
+    return 'aqui podrmso ver formulario notas'.$_GET['id'];
+});
+
+Route::get('notas/{id}/editar', function ($id) {
+    return 'Aquí podremos editar la nota: '.$id;
+});
+
+Route::get('notas/{id}', function ($id) {
+    return 'Aquí veremos los detalles de la nota: '.$id;
+});
+//solo numerio  de solo esta ruta
+/*
+Route::get('notas/{id}/editar', function ($id) {
+    return 'Aquí podremos editar la nota: '.$id;
+})->where('id', '[0-9]+');   // o ->where('id', '\d+')
+ */
